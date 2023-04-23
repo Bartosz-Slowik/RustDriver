@@ -1,0 +1,1 @@
+cargo:rustc-link-search=native=C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0\km\x64

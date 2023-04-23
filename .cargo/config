@@ -1,0 +1,21 @@
+[build]
+target = "x86_64-pc-windows-msvc"
+
+rustflags = [
+        "-C", "link-arg=/ENTRY:DriverEntry",
+        "-Z", "pre-link-arg=/LIBPATH:C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.19041.0\\km\\x64",
+        "-Z", "pre-link-arg=/NOLOGO",
+        "-Z", "pre-link-arg=/NXCOMPAT",
+        "-Z", "pre-link-arg=/NODEFAULTLIB",
+        "-Z", "pre-link-arg=/SUBSYSTEM:NATIVE",
+        "-Z", "pre-link-arg=/DRIVER",
+        "-Z", "pre-link-arg=/DYNAMICBASE",
+        "-Z", "pre-link-arg=/MANIFEST:NO",
+
+        # Post Link Args
+        "-C", "link-arg=/OPT:REF,ICF",
+        "-C", "link-arg=/ENTRY:driver_entry",
+        "-C", "link-arg=/MERGE:.edata=.rdata",
+        "-C", "link-arg=/MERGE:.rustc=.data",
+        "-C", "link-arg=/INTEGRITYCHECK",
+]
